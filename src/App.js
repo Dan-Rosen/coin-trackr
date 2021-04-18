@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline } from '@material-ui/core'
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/styles'
+import CoinPage from './CoinPage'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const theme = createMuiTheme({
+        palette: {
+            type: 'dark',
+            primary: { main: '#009688' },
+            secondary: { main: '#ffc400' }
+        },
+
+        typography: {
+            fontFamily: ['Ubuntu Mono', 'sans-serif'].join(',')
+        }
+    })
+
+    return (
+        <ThemeProvider theme={responsiveFontSizes(theme)}>
+            <CssBaseline />
+            <CoinPage />
+        </ThemeProvider>
+    )
 }
 
-export default App;
+export default App
